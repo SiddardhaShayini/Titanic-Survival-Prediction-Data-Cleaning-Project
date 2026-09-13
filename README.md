@@ -1,109 +1,77 @@
-# House Price Prediction Model
 
-A simple machine learning project that predicts house prices using **Linear Regression**.
+# Titanic Survival Prediction – Data Cleaning Project
 
-## Overview
+## Project Overview
 
-This project:
+This mini project focuses on **cleaning and preprocessing the Titanic dataset** using Python and Pandas. The cleaned data is prepared for further machine learning or data analysis.
 
-* Loads a house price dataset from a CSV file.
-* Selects numeric features for training.
-* Handles missing numeric values.
-* Splits the dataset into training and testing sets.
-* Trains a Linear Regression model.
-* Predicts house prices.
-* Evaluates the model using the **R² score**.
-* Visualizes predicted prices against actual prices.
+## Steps Performed
 
-## Requirements
+### 1. Upload and Load Dataset
 
-Install the required Python libraries:
+-   Uploaded the Titanic CSV file using Google Colab.
+-   Loaded the dataset into a Pandas DataFrame.
+-   Displayed the first 5 rows.
 
-```bash
-pip install pandas scikit-learn matplotlib seaborn
-```
+### 2. Basic Data Summary
 
-If you are using **Google Colab**, these libraries are usually already available.
+-   Used `df.info()` to check:
+    -   Number of rows and columns
+    -   Column names
+    -   Data types
+    -   Missing values
 
-## Dataset
+### 3. Descriptive Statistics
 
-Upload a CSV file containing a target column named:
+-   Used `df.describe()` to view basic statistics such as:
+    -   Mean
+    -   Minimum
+    -   Maximum
+    -   Standard deviation
 
-```text
-price
-```
+### 4. Handling Missing Values
 
-The model automatically selects numeric columns as input features.
+-   Filled missing values in the **Age** column using the median age.
+-   Filled missing values in the **Embarked** column using its most frequent value (mode).
+-   Dropped the **Cabin** column because it contained many missing values.
 
-Example:
+### 5. Encoding Categorical Variables
 
-```text
-area, bedrooms, bathrooms, age, price
-1200, 3, 2, 10, 250000
-1500, 4, 2, 5, 320000
-```
+-   Converted **Sex** into numerical values using `LabelEncoder`.
+-   Converted **Embarked** into numerical columns using `OneHotEncoder`.
 
-## How to Run
+This makes the categorical data suitable for machine learning models.
 
-1. Open the notebook in Google Colab.
-2. Run the dataset loading section.
-3. Upload your CSV file when prompted.
-4. Make sure your target column is named `price`.
-5. Run the remaining cells.
-6. Check the **R² score** and prediction graph.
+### 6. Visualizing Age
 
-## Model
+-   Created a histogram with a KDE curve to visualize the distribution of the **Age** column after missing values were handled.
 
-The project uses:
+### 7. Save Cleaned Dataset
 
-**Linear Regression**
-
-The data is split into:
-
-* **80%** training data
-* **20%** testing data
-
-A `random_state` of `42` is used to make the split reproducible.
-
-## Evaluation
-
-The model is evaluated using the **R² (R-squared) score**.
-
-An R² score closer to **1.0** generally indicates that the model explains more of the variation in house prices.
-
-## Visualization
-
-The project creates a scatter plot comparing:
-
-* **Actual House Prices**
-* **Predicted House Prices**
-
-The red dashed line represents perfect predictions.
-
-## Project Structure
+-   Saved the cleaned dataset as:
 
 ```text
-House-Price-Prediction/
-│
-├── house_price_prediction.ipynb
-├── README.md
-└── dataset.csv
+titanic_cleaned.csv
+
 ```
 
-## Limitations
+-   Downloaded the cleaned CSV file from Google Colab.
 
-This is a simple model intended for learning purposes.
+## Technologies Used
 
-* Only numeric columns are used.
-* Categorical columns are ignored.
-* Missing numeric values are filled with the mean.
-* No advanced feature engineering is performed.
-* Linear Regression may not work well for complex house-price relationships.
+-   Python
+-   Pandas
+-   Scikit-learn
+-   Matplotlib
+-   Seaborn
+-   Google Colab
 
-## Future Improvements
+## Output
 
-* Add categorical feature encoding.
-* Try models such as Random Forest and Gradient Boosting.
-* Perform feature engineering.
-* Add more evaluation metrics such as MAE and RMSE.
-* Tune model parameters.
+The final output is a cleaned and encoded Titanic dataset named:
+
+**`titanic_cleaned.csv`**
+
+## Conclusion
+
+The Titanic dataset was successfully cleaned by handling missing values, removing a column with excessive missing data, encoding categorical variables, and visualizing the Age distribution. The resulting dataset can be used for further analysis or building a **Titanic survival prediction model**.
